@@ -131,3 +131,4 @@ class MyModel(nn.Module):
             print("Final Predictions:", predictions)
             print("Actual values:", self.y)
             print("Final loss:", loss.item())
+            
