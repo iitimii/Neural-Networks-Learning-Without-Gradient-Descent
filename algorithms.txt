@@ -1,0 +1,3 @@
+Hebian Learning
+Evolutionary algorithm
+Spiking Neural Networks
