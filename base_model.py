@@ -4,7 +4,7 @@ import torch.nn.functional as F
 
 class BaseModel(nn.Module):
     def __init__(self, input_size=3, hidden_sizes=[5, 4], output_size=1, 
-                 weight_range=[-1, 1], bias_range=[-1, 1]):
+                 weight_range=(-1, 1), bias_range=(-1, 1), activation=nn.ReLU):
         super(BaseModel, self).__init__()
         self.layers = nn.ModuleList()
         
@@ -14,6 +14,7 @@ class BaseModel(nn.Module):
         # Hidden layers
         for i in range(len(hidden_sizes) - 1):
             self.layers.append(nn.Linear(hidden_sizes[i], hidden_sizes[i+1]))
+            self.layers.append(activation())
         
         # Output layer
         self.layers.append(nn.Linear(hidden_sizes[-1], output_size))
@@ -25,13 +26,14 @@ class BaseModel(nn.Module):
 
     def initialize_parameters(self):
         for layer in self.layers:
-            nn.init.uniform_(layer.weight, self.weight_range[0], self.weight_range[1])
-            nn.init.uniform_(layer.bias, self.bias_range[0], self.bias_range[1])
+            if isinstance(layer, nn.Linear):
+                nn.init.uniform_(layer.weight, *self.weight_range)
+                nn.init.uniform_(layer.bias, *self.bias_range)
     
     def forward(self, x):
-        for layer in self.layers[:-1]:
-            x = F.relu(layer(x))
-        return self.layers[-1](x)
+        for layer in self.layers:
+            x = layer(x)
+        return x
     
     def get_loss(self, y_pred, y_true):
         return F.mse_loss(y_pred, y_true)
@@ -40,6 +42,5 @@ class BaseModel(nn.Module):
         self.eval()
         with torch.no_grad():
             predictions = self(X)
-            loss = F.mse_loss(predictions, y)
-            print("MSE loss:", loss.item())
-            
+            loss = self.get_loss(predictions, y)
+        return loss.item()
