@@ -30,4 +30,8 @@ In traditional neural network training, gradient descent is used to adjust the w
 
 The visualizations show the difference in loss reduction between the two methods over time.
 
+
+Conclusion, the search based learning can be used as an initialization technique, then the gradient learning afterwards.
+
+
 ---
