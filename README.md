@@ -1,6 +1,6 @@
 # Neural-Networks-Learning-Without-Gradient-Descent
 
-This repository implements a novel approach to training neural networks without relying solely on traditional gradient-based methods. We explore a **search-based learning** mechanism, where individual parameters are optimized by directly minimizing the loss function, combined with a hybrid approach that uses both search-based and gradient-based techniques for comparison.
+This repository implements an experimantal approach to training neural networks without relying solely on traditional gradient-based methods. We explore a **search-based learning** mechanism, where individual parameters are optimized by directly minimizing the loss function. Additionally, we compare these methods with conventional gradient-based techniques to evaluate the effectiveness of each approach.
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -8,13 +8,11 @@ This repository implements a novel approach to training neural networks without 
   - [Search Model](#search-model)
   - [Gradient Model](#gradient-model)
   - [Hybrid Model](#hybrid-model)
-- [Installation](#installation)
 - [Usage](#usage)
 - [Results and Comparison](#results-and-comparison)
   - [Training History](#training-history)
   - [Loss Comparison](#loss-comparison)
 - [Conclusion](#conclusion)
-- [References](#references)
 
 ## Introduction
 
@@ -23,7 +21,7 @@ Neural networks are commonly trained using gradient-based methods like backpropa
 - **Sensitivity to local minima**
 - **Need for differentiable loss functions**
 
-To address these challenges, we propose a **search-based method** where we iteratively search over parameter ranges to minimize the loss without relying on gradients. The repository also includes:
+To address these challenges, we explore a **search-based method** where we exhaustively search over parameter ranges to minimize the loss without relying on gradients. The repository also includes:
 1. A **search-based model** that optimizes each parameter through a brute-force search.
 2. A **gradient-based model** for traditional optimization comparison.
 3. A **hybrid model** that combines the benefits of both approaches.
@@ -96,8 +94,9 @@ The bar chart below compares the final loss across the different models:
 
 ## Conclusion
 
-This research demonstrates a novel approach to neural network optimization that does not rely solely on gradients. The search-based model offers an alternative mechanism, particularly useful when gradient methods face challenges, such as non-differentiable functions or poor convergence.
+This research demonstrates an experimental approach to neural network optimization that does not rely solely on gradients. The search-based model offers an alternative mechanism, particularly useful when gradient methods face challenges, such as non-differentiable functions or poor convergence.
 
-While gradient-based models tend to converge faster, the hybrid model shows promise by combining the strengths of both techniques, achieving lower loss values in some cases.
+Overall, this work opens up new possibilities for training neural networks, especially in cases where traditional methods struggle. Future research could explore more efficient search algorithms, integrate additional optimization techniques, or apply this approach to more complex neural network architectures and real-world tasks.
+
 
 ---
