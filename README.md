@@ -79,7 +79,7 @@ Each model's training history is visualized to observe how the loss decreases ov
 ![Search-Based Learning History](images/search.png)
 
 #### Gradient-Based Learning
-![Gradient-Based Learning History](images/grad.png)
+![Gradient-Based Learning History](images/gradient.png)
 
 #### Hybrid Model Training
 ![Hybrid Learning History](images/hybrid.png)
@@ -88,7 +88,7 @@ Each model's training history is visualized to observe how the loss decreases ov
 
 The bar chart below compares the final loss across the different models:
 
-![Loss Comparison](images/comparison.png)
+![Loss Comparison](images/compare.png)
 
 - **Search Model**: Optimizes through brute-force parameter search.
 - **Gradient Model**: Traditional backpropagation with Adam optimizer.
